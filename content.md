@@ -4,7 +4,7 @@ Our goal in this project is to build an app that displays pairs of currencies an
 
 The list of currencies and their exchange rates are dynamic, coming from the [free exchangerate.host API](https://exchangerate.host/).
 
-Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111), [APIs](https://learn.firstdraft.com/lessons/98#intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104#useful-methods) to build it.
+Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), [APIs](https://learn.firstdraft.com/lessons/98#intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) to build it.
 
 Here is your target: 
 
