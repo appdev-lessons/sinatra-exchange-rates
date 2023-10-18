@@ -35,11 +35,6 @@ LTI{Load Sinatra Exchange Rates assignment}(https://grades.firstdraft.com/launch
 
 Then fork the repo and set up a codespace as usual.
 
-<div class="bg-red-100 py-1 px-5" markdown="1">
-
-A walkthrough video with some of the steps will come soon. If you get stuck trying this on your own; check back in a day for the video, which may help. However, you should be able to make some progress with the notes below. Give it a try!
-</div>
-
 ## Guidelines
 
 You should be able to achieve this with what you've already learned! Here are a few hints:
@@ -84,7 +79,65 @@ The root URL of the target displays a list of all currencies that are available 
 - Then use the `JSON` class to `parse` the `String` into an `Array`.
 - Then, in a view template, loop through the `Array` of symbols and display each symbol in a `<li>`.
 
-#### Hash#each
+### Some pseudo-code to get you started
+
+Here's how I might begin my project in the `app.rb` file to define the homepage with the list of symbols:
+
+```ruby
+# /app.rb
+
+require "sinatra"
+require "sinatra/reloader"
+
+# define a route
+get("/") do
+
+  # build the API url, including the API key in the query string
+  api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+
+  # use HTTP.get to retrieve the API information
+  raw_data = HTTP.get(api_url)
+
+  # convert the raw request to a string
+  raw_data_string = raw_data.to_s
+
+  # convert the string to JSON
+  parsed_data = JSON.parse(raw_data_string)
+
+  # get the symbols from the JSON
+  # @symbols = parsed_data ...
+
+  # render a view template where I show the symbols
+  # erb(:homepage)
+end
+```
+
+Try and use that code to get you started! You will need to use dynamic path segments with the two currencies for the other routes, e.g.
+
+```ruby
+# /app.rb
+
+# ...
+
+get("/:from_currency") do
+  @original_currency = params.fetch("from_currency")
+
+  api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+  
+  # some more code to parse the URL and render a view template
+end
+
+get("/:from_currency/:to_currency") do
+  @original_currency = params.fetch("from_currency")
+  @destination_currency = params.fetch("to_currency")
+
+  api_url = "https://api.exchangerate.host/convert?access_key=#{ENV["EXCHANGE_RATE_KEY"]}&from=#{@original_currency}&to=#{@destination_currency}&amount=1"
+  
+  # some more code to parse the URL and render a view template
+end
+```
+
+### Hash#each
 
 <div class="bg-blue-100 py-1 px-5" markdown="1">
 
