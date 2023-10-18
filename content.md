@@ -33,11 +33,17 @@ Then fork the repo and set up a codespace as usual.
 
 ## Guidelines
 
-You should be able to achieve this with what you've already learned! But here are a few hints:
+You should be able to achieve this with what you've already learned! Here are a few hints:
 
 ### Add the API access key
 
+Go to Canvas, retrieve the API key, and [store it securely](https://learn.firstdraft.com/lessons/52-storing-credentials-securely) so that you can access it in your `app.rb` file like:
 
+```ruby
+api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_API_KEY"]}"
+```
+
+**This will prevent you from publishing the actual API key on GitHub!**
 
 ### Hoppscotch
 
