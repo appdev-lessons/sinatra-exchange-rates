@@ -53,13 +53,13 @@ Remember, [Hoppscotch](https://learn.firstdraft.com/lessons/225-intro-to-apis#ho
 
 Remember to replace `EXCHANGE_RATE_KEY` with the key we provided you on Canvas. And **do not put the key directly in your code; [store them securely and access them from the `ENV` variable](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).**
 
- - API endpoint + query string that returns all available currencies (`/list?access_key`): 
+ - API endpoint + query string that returns all available currencies (`/list ? access_key`): 
       
 ```
 https://api.exchangerate.host/list?access_key=EXCHANGE_RATE_KEY
 ```
 
- - API endpoint + query string to convert between two currencies (`/convert?access_key&from&to&amount`):
+ - API endpoint + query string to convert between two currencies (`/convert ? access_key & from & to & amount`):
 
 ```
 https://api.exchangerate.host/convert?access_key=EXCHANGE_RATE_KEY&from=USD&to=INR&amount=1
