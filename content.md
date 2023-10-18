@@ -13,15 +13,19 @@ The exchangerate.host API requires an API access key. There is a free tier that 
 [Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
 </div>
 
-Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) to build it.
-
 Here is your target: 
 
 [exchange-rates.matchthetarget.com](https://exchange-rates.matchthetarget.com/)
 
 Click around and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
 
-Then, start defining routes in your app and making it match the target!
+Then, let's use what we've learned about 
+
+- [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), 
+- [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis) (including the [Umbrella project](https://learn.firstdraft.com/lessons/104-umbrella)), 
+- and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) 
+
+to start defining routes in your app and make it match the target!
 
 ## Setup a codespace
 
@@ -30,6 +34,11 @@ This project includes automated tests, so click here to get an access token:
 LTI{Load Sinatra Exchange Rates assignment}(https://grades.firstdraft.com/launch)[S9ymPy6WCsn18gLbByVbZQ7k]{vfdtzJb5bLYqYwuqgeRKpc5d}(10)[Sinatra Exchange Rates Project]
 
 Then fork the repo and set up a codespace as usual.
+
+<div class="bg-red-100 py-1 px-5" markdown="1">
+
+A walkthrough video with some of the steps will come soon. If you get stuck trying this on your own; check back in a day for the video, which may help. However, you should be able to make some progress with the notes below. Give it a try!
+</div>
 
 ## Guidelines
 
