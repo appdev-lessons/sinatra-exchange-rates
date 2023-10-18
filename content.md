@@ -19,7 +19,7 @@ Here is your target:
 
 Click around and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
 
-Then, let's use what we've learned about 
+Then, use what we've learned about 
 
 - [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), 
 - [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis) (including the [Umbrella project](https://learn.firstdraft.com/lessons/104-umbrella)), 
