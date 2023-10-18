@@ -4,7 +4,14 @@ Our goal in this project is to build an app that displays pairs of currencies an
 
 [https://exchange-rates.matchthetarget.com/USD/INR](https://exchange-rates.matchthetarget.com/USD/INR)
 
-The list of currencies and their exchange rates are dynamic, coming from the [free exchangerate.host API](https://exchangerate.host/).
+The list of currencies and their exchange rates are dynamic, coming from the [exchangerate.host API](https://exchangerate.host/).
+
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+The exchangerate.host API requires an API access key. There is a free tier that you are welcome to sign up for an use in your app; however, you are not required to do that and instead you can use the API key that we provide on Canvas.
+
+[Here is a quick video]() demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
+</div>
 
 Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) to build it.
 
@@ -28,27 +35,46 @@ Then fork the repo and set up a codespace as usual.
 
 You should be able to achieve this with what you've already learned! But here are a few hints:
 
+### Add the API access key
+
+
+
 ### Hoppscotch
 
 Remember, [Hoppscotch](https://learn.firstdraft.com/lessons/225-intro-to-apis#hoppscotch-a-client-designed-for-learning) is a useful tool for exploring API URLs (or "endpoints"). It will format and indent JSON to make it easier to understand the structure of nested arrays/hashes.
 
 ### Useful exchangerate.host endpoints
 
- - API endpoint that returns all available currencies: 
-    - [https://api.exchangerate.host/symbols](https://api.exchangerate.host/symbols)
- - API endpoint to convert between two currencies (e.g. USD to INR): 
-    - [https://api.exchangerate.host/convert?from=USD&to=EUR](https://api.exchangerate.host/convert?from=USD&to=INR)
- - [Full API documentation](https://exchangerate.host/#/docs)
+Remember to replace `API_ACCESS_KEY` with the key we provided you on Canvas. And **do not put the key directly in your code; [store them securely and access them from the `ENV` variable](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).**
+
+ - API endpoint + query string that returns all available currencies (`/list?access_key`): 
+      
+      ```
+      https://api.exchangerate.host/list?access_key=API_ACCESS_KEY
+      ```
+
+ - API endpoint + query string to convert between two currencies (`/convert?access_key&from&to&amount`):
+
+       ```
+      https://api.exchangerate.host/convert?access_key=API_ACCESS_KEY&from=USD&to=INR&amount=1
+      ```
+
+ - [Full API documentation](https://exchangerate.host/documentation)
 
 ### Homepage
 
-The root URL of the target displays a list of all currencies that are available from the exchangerate.host API. This list of currencies changes, e.g. as new cryptocurrencies are added to their dataset. So, we can't just hard code the list of currencies into our homepage; we need to draw it dynamically, based on the data from [the `/symbols` endpoint](https://api.exchangerate.host/symbols).
+The root URL of the target displays a list of all currencies that are available from the exchangerate.host API. This list of currencies changes, e.g. as new cryptocurrencies are added to their dataset. So, we can't just hard code the list of currencies into our homepage; we need to draw it dynamically, based on the data from the `api.exchangerate.host/list` endpoint.
 
 - Use the `HTTP` class to `get` the `String` located at that URL.
 - Then use the `JSON` class to `parse` the `String` into an `Array`.
 - Then, in a view template, loop through the `Array` of symbols and display each symbol in a `<li>`.
 
 #### Hash#each
+
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+You don't need to use `Hash#each` to solve the project, but you may find it useful.
+</div>
 
 Note: `Hash` has a method called `.each` also. Suppose you have a hash like this:
 
