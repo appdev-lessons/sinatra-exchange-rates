@@ -10,7 +10,7 @@ The list of currencies and their exchange rates are dynamic, coming from the [ex
 
 The exchangerate.host API requires an API access key. There is a free tier that you are welcome to sign up for an use in your app; however, you are not required to do that and instead you can use the API key that we provide on Canvas.
 
-[Here is a quick video]() demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
+[Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
 </div>
 
 Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) to build it.
