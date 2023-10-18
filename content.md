@@ -55,15 +55,15 @@ Remember to replace `EXCHANGE_RATE_KEY` with the key we provided you on Canvas. 
 
  - API endpoint + query string that returns all available currencies (`/list?access_key`): 
       
-      ```
-      https://api.exchangerate.host/list?access_key=EXCHANGE_RATE_KEY
-      ```
+```
+https://api.exchangerate.host/list?access_key=EXCHANGE_RATE_KEY
+```
 
  - API endpoint + query string to convert between two currencies (`/convert?access_key&from&to&amount`):
 
-      ```
-      https://api.exchangerate.host/convert?access_key=EXCHANGE_RATE_KEY&from=USD&to=INR&amount=1
-      ```
+```
+https://api.exchangerate.host/convert?access_key=EXCHANGE_RATE_KEY&from=USD&to=INR&amount=1
+```
 
  - [Full API documentation](https://exchangerate.host/documentation)
 
