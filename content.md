@@ -40,7 +40,7 @@ You should be able to achieve this with what you've already learned! Here are a 
 Go to Canvas, retrieve the API key, and [store it securely](https://learn.firstdraft.com/lessons/52-storing-credentials-securely) so that you can access it in your `app.rb` file like:
 
 ```ruby
-api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_API_KEY"]}"
+api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
 ```
 
 **This will prevent you from publishing the actual API key on GitHub!**
@@ -51,18 +51,18 @@ Remember, [Hoppscotch](https://learn.firstdraft.com/lessons/225-intro-to-apis#ho
 
 ### Useful exchangerate.host endpoints
 
-Remember to replace `API_ACCESS_KEY` with the key we provided you on Canvas. And **do not put the key directly in your code; [store them securely and access them from the `ENV` variable](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).**
+Remember to replace `EXCHANGE_RATE_KEY` with the key we provided you on Canvas. And **do not put the key directly in your code; [store them securely and access them from the `ENV` variable](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).**
 
  - API endpoint + query string that returns all available currencies (`/list?access_key`): 
       
       ```
-      https://api.exchangerate.host/list?access_key=API_ACCESS_KEY
+      https://api.exchangerate.host/list?access_key=EXCHANGE_RATE_KEY
       ```
 
  - API endpoint + query string to convert between two currencies (`/convert?access_key&from&to&amount`):
 
-       ```
-      https://api.exchangerate.host/convert?access_key=API_ACCESS_KEY&from=USD&to=INR&amount=1
+      ```
+      https://api.exchangerate.host/convert?access_key=EXCHANGE_RATE_KEY&from=USD&to=INR&amount=1
       ```
 
  - [Full API documentation](https://exchangerate.host/documentation)
