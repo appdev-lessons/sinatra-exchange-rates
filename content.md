@@ -4,9 +4,14 @@ Our goal in this project is to build an app that displays pairs of currencies an
 
 [https://exchange-rates.matchthetarget.com/USD/INR](https://exchange-rates.matchthetarget.com/USD/INR)
 
-The list of currencies and their exchange rates are dynamic, coming from the [free exchangerate.host API](https://exchangerate.host/).
+The list of currencies and their exchange rates are dynamic, coming from the [exchangerate.host API](https://exchangerate.host/).
 
-Let's use what we've learned about [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis), and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) to build it.
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+The exchangerate.host API requires an API access key. There is a free tier that you are welcome to sign up for an use in your app; however, you are not required to do that and instead you can use the API key that we provide on Canvas.
+
+[Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
+</div>
 
 Here is your target: 
 
@@ -14,7 +19,13 @@ Here is your target:
 
 Click around and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
 
-Then, start defining routes in your app and making it match the target!
+Then, use what we've learned about 
+
+- [dynamic path segments](https://learn.firstdraft.com/lessons/111-sinatra-dice-dynamic-routes), 
+- [APIs](https://learn.firstdraft.com/lessons/225-intro-to-apis) (including the [Umbrella project](https://learn.firstdraft.com/lessons/104-umbrella)), 
+- and [JSON parsing](https://learn.firstdraft.com/lessons/104-umbrella#useful-methods) 
+
+to start defining routes in your app and make it match the target!
 
 ## Setup a codespace
 
@@ -26,7 +37,17 @@ Then fork the repo and set up a codespace as usual.
 
 ## Guidelines
 
-You should be able to achieve this with what you've already learned! But here are a few hints:
+You should be able to achieve this with what you've already learned! Here are a few hints:
+
+### Add the API access key
+
+Go to Canvas, retrieve the API key, and [store it securely](https://learn.firstdraft.com/lessons/52-storing-credentials-securely) so that you can access it in your `app.rb` file like:
+
+```ruby
+api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+```
+
+**This will prevent you from publishing the actual API key on GitHub!**
 
 ### Hoppscotch
 
@@ -34,21 +55,94 @@ Remember, [Hoppscotch](https://learn.firstdraft.com/lessons/225-intro-to-apis#ho
 
 ### Useful exchangerate.host endpoints
 
- - API endpoint that returns all available currencies: 
-    - [https://api.exchangerate.host/symbols](https://api.exchangerate.host/symbols)
- - API endpoint to convert between two currencies (e.g. USD to INR): 
-    - [https://api.exchangerate.host/convert?from=USD&to=EUR](https://api.exchangerate.host/convert?from=USD&to=INR)
- - [Full API documentation](https://exchangerate.host/#/docs)
+Remember to replace `EXCHANGE_RATE_KEY` with the key we provided you on Canvas. And **do not put the key directly in your code; [store them securely and access them from the `ENV` variable](https://learn.firstdraft.com/lessons/52-storing-credentials-securely).**
+
+ - API endpoint + query string that returns all available currencies (`/list ? access_key`): 
+      
+```
+https://api.exchangerate.host/list?access_key=EXCHANGE_RATE_KEY
+```
+
+ - API endpoint + query string to convert between two currencies (`/convert ? access_key & from & to & amount`):
+
+```
+https://api.exchangerate.host/convert?access_key=EXCHANGE_RATE_KEY&from=USD&to=INR&amount=1
+```
+
+ - [Full API documentation](https://exchangerate.host/documentation)
 
 ### Homepage
 
-The root URL of the target displays a list of all currencies that are available from the exchangerate.host API. This list of currencies changes, e.g. as new cryptocurrencies are added to their dataset. So, we can't just hard code the list of currencies into our homepage; we need to draw it dynamically, based on the data from [the `/symbols` endpoint](https://api.exchangerate.host/symbols).
+The root URL of the target displays a list of all currencies that are available from the exchangerate.host API. This list of currencies changes, e.g. as new cryptocurrencies are added to their dataset. So, we can't just hard code the list of currencies into our homepage; we need to draw it dynamically, based on the data from the `api.exchangerate.host/list` endpoint.
 
 - Use the `HTTP` class to `get` the `String` located at that URL.
 - Then use the `JSON` class to `parse` the `String` into an `Array`.
 - Then, in a view template, loop through the `Array` of symbols and display each symbol in a `<li>`.
 
-#### Hash#each
+### Some pseudo-code to get you started
+
+Here's how I might begin my project in the `app.rb` file to define the homepage with the list of symbols:
+
+```ruby
+# /app.rb
+
+require "sinatra"
+require "sinatra/reloader"
+
+# define a route
+get("/") do
+
+  # build the API url, including the API key in the query string
+  api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+
+  # use HTTP.get to retrieve the API information
+  raw_data = HTTP.get(api_url)
+
+  # convert the raw request to a string
+  raw_data_string = raw_data.to_s
+
+  # convert the string to JSON
+  parsed_data = JSON.parse(raw_data_string)
+
+  # get the symbols from the JSON
+  # @symbols = parsed_data ...
+
+  # render a view template where I show the symbols
+  # erb(:homepage)
+end
+```
+
+Try and use that code to get you started! You will need to use dynamic path segments with the two currencies for the other routes, e.g.
+
+```ruby
+# /app.rb
+
+# ...
+
+get("/:from_currency") do
+  @original_currency = params.fetch("from_currency")
+
+  api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KEY"]}"
+  
+  # some more code to parse the URL and render a view template
+end
+
+get("/:from_currency/:to_currency") do
+  @original_currency = params.fetch("from_currency")
+  @destination_currency = params.fetch("to_currency")
+
+  api_url = "https://api.exchangerate.host/convert?access_key=#{ENV["EXCHANGE_RATE_KEY"]}&from=#{@original_currency}&to=#{@destination_currency}&amount=1"
+  
+  # some more code to parse the URL and render a view template
+end
+```
+
+### Hash#each
+
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+You don't need to use `Hash#each` to solve the project, but you may find it useful.
+</div>
 
 Note: `Hash` has a method called `.each` also. Suppose you have a hash like this:
 
