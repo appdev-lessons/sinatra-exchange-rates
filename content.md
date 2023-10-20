@@ -93,6 +93,7 @@ Here's how I might begin my project in the `app.rb` file to define the homepage 
 
 require "sinatra"
 require "sinatra/reloader"
+require "http"
 
 # define a route
 get("/") do
