@@ -49,6 +49,11 @@ api_url = "https://api.exchangerate.host/list?access_key=#{ENV["EXCHANGE_RATE_KE
 
 **This will prevent you from publishing the actual API key on GitHub!**
 
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+After you add the environment variable be sure to [stop and restart the codespace](https://learn.firstdraft.com/lessons/47-codespaces-setup#closing-and-reopening-a-workspace) for access to the new secret.
+</div>
+
 ### Hoppscotch
 
 Remember, [Hoppscotch](https://learn.firstdraft.com/lessons/225-intro-to-apis#hoppscotch-a-client-designed-for-learning) is a useful tool for exploring API URLs (or "endpoints"). It will format and indent JSON to make it easier to understand the structure of nested arrays/hashes.
