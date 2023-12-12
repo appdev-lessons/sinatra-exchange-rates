@@ -30,9 +30,9 @@ Then fork the repo and set up a codespace as usual.
 
 <div class="bg-blue-100 py-1 px-5" markdown="1">
 
-The exchangerate.host API requires an API access key. There is a free tier that you will need to sign up for an use in your app.
+The [exchangerate.host API](https://exchangerate.host/) requires an API access key. There is a free tier that you will need to sign up for an use in your app.
 
-[Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how to get your own API key and store it securely in your GitHub ENV variables. Anytime you need an API key for a given service, the steps will be similar, so get some practice now getting your key and adding it the repository before continuing.
+[Follow the link to the exchangerate.host API, then watch and follow along with this video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how to get your own API key and store it securely in your GitHub ENV variables. Anytime you need an API key for a given service, the steps will be similar, so get some practice now getting your key and adding it the repository before continuing.
 </div>
 
 ## Guidelines
