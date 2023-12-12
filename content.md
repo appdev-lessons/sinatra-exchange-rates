@@ -1,5 +1,9 @@
 # Sinatra: Exchange Rates
 
+The target for this project can be accessed with the username and password found on Canvas:
+
+[exchange-rates.matchthetarget.com](https://exchange-rates.matchthetarget.com/)
+
 Our goal in this project is to build an app that displays pairs of currencies and their current exchange rate, based on API data. For example, this URL displays the current exchange rate between United States Dollars and Indian Rupees:
 
 [https://exchange-rates.matchthetarget.com/USD/INR](https://exchange-rates.matchthetarget.com/USD/INR)
@@ -13,11 +17,7 @@ The exchangerate.host API requires an API access key. There is a free tier that 
 [Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
 </div>
 
-Here is your target: 
-
-[exchange-rates.matchthetarget.com](https://exchange-rates.matchthetarget.com/)
-
-Click around and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
+Click around the target and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
 
 Then, use what we've learned about 
 
