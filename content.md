@@ -10,13 +10,6 @@ Our goal in this project is to build an app that displays pairs of currencies an
 
 The list of currencies and their exchange rates are dynamic, coming from the [exchangerate.host API](https://exchangerate.host/).
 
-<div class="bg-blue-100 py-1 px-5" markdown="1">
-
-The exchangerate.host API requires an API access key. There is a free tier that you are welcome to sign up for an use in your app; however, you are not required to do that and instead you can use the API key that we provide on Canvas.
-
-[Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how you could get your own API key. Anytime you need an API key for a given service, the steps will be similar, so it is worth a quick watch.
-</div>
-
 Click around the target and explore to get a feel for how it works. What URLs are accessible in the target? How many different routes do you think there are? Remember that some of the routes might be flexible, so it's not a 1-to-1 with URLs that you're able to visit.
 
 Then, use what we've learned about 
@@ -34,6 +27,13 @@ This project includes automated tests, so click here to get an access token:
 LTI{Load Sinatra Exchange Rates assignment}(https://grades.firstdraft.com/launch)[S9ymPy6WCsn18gLbByVbZQ7k]{vfdtzJb5bLYqYwuqgeRKpc5d}(10)[Sinatra Exchange Rates Project]
 
 Then fork the repo and set up a codespace as usual.
+
+<div class="bg-blue-100 py-1 px-5" markdown="1">
+
+The exchangerate.host API requires an API access key. There is a free tier that you will need to sign up for an use in your app.
+
+[Here is a quick video](https://share.descript.com/view/wK0XpujLtJy) demonstrating how to get your own API key and store it securely in your GitHub ENV variables. Anytime you need an API key for a given service, the steps will be similar, so get some practice now getting your key and adding it the repository before continuing.
+</div>
 
 ## Guidelines
 
